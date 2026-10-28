@@ -471,11 +471,11 @@ function update(dt){const inpt=fieldInputs();if(running&&!paused&&!finished){tim
     if(inpt.gas)player.speed=Math.min(max,player.speed+tunedAccel*damagedPower*tractionFactor*(physicsMode==='sim'?.88:1)*dt*(1-forwardSpeed/Math.max(max,1)*.48));
     else if(inpt.reverse)player.speed=Math.max(-7,player.speed-4.5*dt);
     else if(inpt.brake){const absPulse=absActive?.82+.18*(.5+.5*Math.sin(time*38)):1;const wetBrake=condition==='rain'?.78:1;if(player.speed>0)player.speed=Math.max(0,player.speed-(player.speed>28?10.5:8.2)*(1+garageUpgrades.brakes*.085)*dt*absPulse*wetBrake);else if(mode==='keyboard')player.speed=Math.max(-17,player.speed-20*dt);}
-    else if(!inpt.gas)player.speed*=Math.max(0,1-(player.speed>0?.11:.32)*dt);
+    else if(!inpt.gas){if(player.speed>0){const coastDrag=.08+forwardSpeed*forwardSpeed*.00072;player.speed=Math.max(0,player.speed-coastDrag*dt);}else player.speed*=Math.max(0,1-.32*dt);}
     if(boosting){player.speed=Math.min(max,player.speed+(tunedNitro+2.2)*dt);nitro=Math.max(0,nitro-(29-stage*1.5)*dt);}else nitro=Math.min(100,nitro+(drafting?13:7)*dt);
     const speedFactor=Math.min(1,Math.abs(player.speed)/28),steerInput=Number(inpt.right)-Number(inpt.left);
     steer+=(steerInput-steer)*Math.min(1,dt*(5.2+speedFactor*2.4));
-    const wetGrip=condition==='rain'?.66:1;const simGrip=physicsMode==='sim'?.86:1;const damageGrip=1-Math.min(.24,crashCount*.07);const tyreConditionGrip=1-tyreWear*.0012;const suspensionStability=1+garageUpgrades.suspension*.035;const grip=Math.max(.24,(1-speedFactor*(physicsMode==='sim'?.43:.34))*wetGrip*surfaceGrip*simGrip*damageGrip*tyreConditionGrip*Math.min(1.35,spec.grip+garageUpgrades.grip*.045)*suspensionStability),cornerLoad=Math.abs(steer)*speedFactor;
+    const wetGrip=condition==='rain'?.66:1;const simGrip=physicsMode==='sim'?.86:1;const damageGrip=1-Math.min(.24,crashCount*.07);const tyreConditionGrip=1-tyreWear*.0012;const suspensionStability=1+garageUpgrades.suspension*.035;const aeroLoad=1+Math.min(.10,forwardSpeed*.0008);const grip=Math.max(.24,(1-speedFactor*(physicsMode==='sim'?.43:.34))*wetGrip*surfaceGrip*simGrip*damageGrip*tyreConditionGrip*Math.min(1.35,spec.grip+garageUpgrades.grip*.045)*suspensionStability*aeroLoad),cornerLoad=Math.abs(steer)*speedFactor;
     player.slip+=(steer*(inpt.brake?1.35:1)*cornerLoad-player.slip)*Math.min(1,dt*(inpt.brake?1.8:4.8));
     const lateralForce=steer*(.55+forwardSpeed*.105)*grip+player.slip*(forwardSpeed*.15);
     player.lateralVelocity+=(lateralForce-player.lateralVelocity)*Math.min(1,dt*(inpt.brake&&cornerLoad>.18?1.2:(physicsMode==='sim'?3.0:4.2))*(condition==='rain'?.78:1)*surfaceGrip*damageGrip);
