@@ -395,3 +395,17 @@ body.crash-hit #game{filter:saturate(.72) contrast(1.08)}
   #nameScreen .world-car-glass{height:37px}
 }
 @media(prefers-reduced-motion:reduce){#nameScreen .registration-world::after{animation:none}}
+
+/* Keep the perspective asphalt clearly visible around the registration panel. */
+#nameScreen .registration-world::before{
+  left:50%;bottom:-1%;width:100vw;height:65%;transform:translateX(-50%);
+  transform-origin:center bottom;clip-path:polygon(43% 0,57% 0,100% 100%,0 100%);
+  border:0;box-shadow:none;
+  background:
+    linear-gradient(90deg,transparent 0 7%,#d8ff38 7.2% 7.5%,transparent 7.8% 49.65%,#f4f6db 49.85% 50.15%,transparent 50.35% 92.2%,#d8ff38 92.5% 92.8%,transparent 93%),
+    repeating-linear-gradient(180deg,transparent 0 40px,#eaff9a9c 41px 46px,transparent 47px 82px),
+    linear-gradient(90deg,#24302f 0%,#131c1e 35%,#101719 50%,#131c1e 65%,#24302f 100%);
+  opacity:.9;mask-image:linear-gradient(180deg,transparent 0%,#000 16%,#000 92%,transparent 100%);
+}
+#nameScreen .world-grid{opacity:.34}
+@media(max-width:700px){#nameScreen .registration-world::before{width:145vw;height:54%;bottom:0}}
