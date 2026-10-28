@@ -21,3 +21,8 @@ Requires a modern browser with WebGL (Chrome or Edge recommended). Progress is s
 - Export your career, credits, upgrades, cars, settings and daily-gift streak from the garage.
 - Import that JSON save on another browser or PC to continue your profile.
 - Import replaces the current local game save after confirmation. Keep the exported JSON somewhere safe.
+
+## Personal best ghost racer
+- Race against the fastest saved run for each stage and event.
+- A cyan ghost car replays the best racing line, and the timer panel shows whether you are ahead or behind.
+- Ghost runs save locally and are included in exported driver backups.
