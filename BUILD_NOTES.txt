@@ -1,0 +1,9 @@
+ZAYRO RACING — BUILD NOTES
+- Preserved the existing 4.0 game systems and gameplay code.
+- Added Daily Happiness Gift: 300–700 random credits once per local calendar day.
+- Consecutive daily claims add +100 CR per streak day beyond day 1, capped at +500 bonus.
+- Daily reward date/streak stored locally under dilseDailyGiftDate and dilseDailyGiftStreak.
+- Removed the 4.1 suffix from the game name and corrected the header branding to ZAYRO RACING.
+- Checks performed: JavaScript syntax, Python syntax, HTML parse/IDs, asset references, HTTP smoke test, ZIP integrity.
+- Full interactive WebGL gameplay was not exhaustively tested.
+
