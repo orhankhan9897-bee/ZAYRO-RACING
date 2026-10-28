@@ -345,3 +345,9 @@ body.crash-hit #game{filter:saturate(.72) contrast(1.08)}
 
 /* Personal-best race ghost and live split delta */
 .ghost-delta{margin-top:5px;color:#76cde0;font:7px 'Space Mono',monospace;letter-spacing:.055em;white-space:nowrap}.ghost-delta.ahead{color:#76f5c4;text-shadow:0 0 12px #48ffc044}.ghost-delta.behind{color:#ffb66c}
+
+
+/* Opening screen cleanup: remove overlapping decorative status labels. */
+#nameScreen .name-box::before,#nameScreen .name-box .eyebrow::after{content:none!important;display:none!important}
+#nameScreen .name-box .eyebrow{flex-wrap:nowrap!important;gap:8px}
+.register-status{white-space:nowrap}
