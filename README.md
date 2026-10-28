@@ -16,3 +16,8 @@ A browser-based WebGL racing game. This release keeps the existing 4.0 gameplay 
 
 Requires a modern browser with WebGL (Chrome or Edge recommended). Progress is stored locally in the browser.
 
+
+## Driver save backup
+- Export your career, credits, upgrades, cars, settings and daily-gift streak from the garage.
+- Import that JSON save on another browser or PC to continue your profile.
+- Import replaces the current local game save after confirmation. Keep the exported JSON somewhere safe.
