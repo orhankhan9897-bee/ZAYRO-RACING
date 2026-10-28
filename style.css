@@ -337,3 +337,7 @@ body.crash-hit #game{filter:saturate(.72) contrast(1.08)}
 .daily-gift-panel button:disabled{background:#24312d;border-color:#4c6559;color:#91a49a;cursor:default}
 @media(max-width:520px){.daily-gift-panel{gap:8px;padding:9px}.daily-gift-panel button{flex:1 1 100%;padding:11px}.daily-gift-icon{flex-basis:32px;height:32px}}
 
+
+
+/* Driver save transfer */
+.profile-transfer{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 4px}.profile-transfer button{padding:11px 8px;border:1px solid #d8ff3855;background:linear-gradient(145deg,#172322,#0a1112);color:var(--acid);font:800 8px 'Space Mono',monospace;letter-spacing:.04em;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}.profile-transfer button:hover{transform:translateY(-1px);border-color:var(--acid);background:#d8ff3812}.profile-transfer button:focus-visible{outline:2px solid #f4ffd0;outline-offset:3}@media(max-width:420px){.profile-transfer{grid-template-columns:1fr}.profile-transfer button{padding:12px}}
