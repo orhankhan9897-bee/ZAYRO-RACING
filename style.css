@@ -409,3 +409,6 @@ body.crash-hit #game{filter:saturate(.72) contrast(1.08)}
 }
 #nameScreen .world-grid{opacity:.34}
 @media(max-width:700px){#nameScreen .registration-world::before{width:145vw;height:54%;bottom:0}}
+
+/* Teacher feedback: consistent steering and finish speed readout. */
+.finish-speed-panel{display:flex;align-items:center;justify-content:center;gap:12px;margin:10px auto 5px;padding:9px 13px;max-width:250px;border:1px solid #d8ff385e;background:linear-gradient(110deg,#d8ff3812,#d8ff3805)}.finish-speed-panel span{font:8px 'Space Mono',monospace;letter-spacing:1px;color:#aab5b1}.finish-speed-panel strong{font:800 18px 'Space Mono',monospace;color:var(--acid);text-shadow:0 0 14px #d8ff3835}@media(max-width:700px){.finish-speed-panel{margin:8px auto;padding:8px 10px;gap:8px}.finish-speed-panel strong{font-size:15px}}
